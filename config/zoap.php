@@ -38,6 +38,22 @@ return [
                 'Cache-Control'     => 'no-cache, no-store'
             ],
             'options'           => []
+        ],
+
+        'Catalogos' => [
+            'name'              => 'Catalogos',
+            'class'             => 'App\Http\Controllers\CatalogosController',
+            'exceptions'        => [
+                'Exception'
+            ],
+            'types'             => [
+                'responseSoap' => 'App\Types\ResponseSOAP'
+            ],
+            'strategy'          => 'ArrayOfTypeComplex',
+            'headers'           => [
+                'Cache-Control'     => 'no-cache, no-store'
+            ],
+            'options'           => []
         ]
     ],
 
