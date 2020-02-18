@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Types\Catalogo\Response;
+namespace App\Types\Documento\Response;
 
-class ExpedienteResponse
+class DocumentoResponse
 {
     /**
      * @var integer
@@ -15,7 +15,7 @@ class ExpedienteResponse
     public $message;
 
     /**
-     * @var App\Types\Catalogo\Custom\Expediente[]
+     * @var App\Types\Documento\Custom\Documento[]
      */
     public $data;
 

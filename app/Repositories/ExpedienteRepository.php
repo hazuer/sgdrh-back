@@ -2,15 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\ExpedienteDocModel;
 use App\Models\ExpedienteModel;
 
-class ComboRepository
+class ExpedienteRepository
 {
-    public function getDocumentosByIdExpediente($request)
+    public function getAllExpedientes()
+    {
+        return ExpedienteModel::all();
+    }
+    
+    public function getExpedienteById($request)
     {
         
-        $q = ExpedienteDocModel::where([
+        $q = ExpedienteModel::where([
             ['id_expediente', $request->id_expediente],
             ['id_estatus', 1]
         ])
@@ -20,10 +24,5 @@ class ComboRepository
             throw new \Exception('Expediente no encontrado.');
 
         return $q;
-    }
-
-    public function getAllExpedientes()
-    {
-        return ExpedienteModel::get();
     }
 }

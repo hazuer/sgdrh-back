@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Types\Catalogo\Request;
+namespace App\Types\Expediente\Request;
 
-class DocumentoRequest
+class ExpedienteRequest
 {
     /**
      * @var integer

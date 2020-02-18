@@ -6,55 +6,37 @@ return [
 
     'services'          => [
         
-        'demo'              => [
-            'name'              => 'Demo',
-            'class'             => 'Viewflex\Zoap\Demo\DemoService',
-            'exceptions'        => [
+        'Expedientes' => [
+                'name'              => 'Expedientes',
+                'class'             => 'App\Http\Controllers\ExpedientesController',
+                'exceptions'        => [
                 'Exception'
-            ],
-            'types'             => [
-                'keyValue'          => 'Viewflex\Zoap\Demo\Types\KeyValue',
-                'product'           => 'Viewflex\Zoap\Demo\Types\Product'
-            ],
-            'strategy'          => 'ArrayOfTypeComplex',
-            'headers'           => [
-                'Cache-Control'     => 'no-cache, no-store'
-            ],
-            'options'           => []
-        ],
-
-        'hola'              => [
-            'name'              => 'Hola',
-            'class'             => 'Viewflex\Zoap\Hola\HolaService',
-            'exceptions'        => [
-                'Exception'
-            ],
-            'types'             => [
-                'keyValue'          => 'Viewflex\Zoap\Hola\Types\KeyValue',
-                'product'           => 'Viewflex\Zoap\Hola\Types\Product'
-            ],
-            'strategy'          => 'ArrayOfTypeComplex',
-            'headers'           => [
-                'Cache-Control'     => 'no-cache, no-store'
-            ],
-            'options'           => []
-        ],
-
-        'Catalogos' => [
-            'name'              => 'Catalogos',
-            'class'             => 'App\Http\Controllers\CatalogosController',
-            'exceptions'        => [
-                'Exception'
-            ],
-            'types'             => [
+                ],
+                'types'             => [
                 'responseSoap' => 'App\Types\ResponseSOAP'
-            ],
-            'strategy'          => 'ArrayOfTypeComplex',
-            'headers'           => [
+                ],
+                'strategy'          => 'ArrayOfTypeComplex',
+                'headers'           => [
                 'Cache-Control'     => 'no-cache, no-store'
-            ],
-            'options'           => []
-        ]
+                ],
+                'options'           => []
+                ],
+
+            'Documentos' => [
+                'name'              => 'Documentos',
+                'class'             => 'App\Http\Controllers\DocumentosController',
+                'exceptions'        => [
+                'Exception'
+                ],
+                'types'             => [
+                'responseSoap' => 'App\Types\ResponseSOAP'
+                ],
+                'strategy'          => 'ArrayOfTypeComplex',
+                'headers'           => [
+                'Cache-Control'     => 'no-cache, no-store'
+                ],
+                'options'           => []
+                ]
     ],
 
     

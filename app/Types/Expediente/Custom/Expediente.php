@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Types\Catalogo\Custom;
+namespace App\Types\Expediente\Custom;
 
 class Expediente
 {
