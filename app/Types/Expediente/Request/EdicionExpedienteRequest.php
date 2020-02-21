@@ -2,8 +2,13 @@
 
 namespace App\Types\Expediente\Request;
 
-class AltaExpediente
+class EdicionExpedienteRequest
 {
+    /**
+     * @var integer
+     */
+    public $id_expediente;
+    
     /**
      * @var string
      */

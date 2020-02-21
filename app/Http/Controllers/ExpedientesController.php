@@ -6,6 +6,7 @@ use App\Types\Expediente\Custom\Expediente;
 use App\Types\Expediente\Response\ExpedienteResponse;
 use App\Types\Expediente\Custom\AltaExpediente;
 use App\Types\Expediente\Response\AltaExpedienteResponse;
+use App\Types\Expediente\Response\EdicionExpedienteResponse;
 
 /**
  * Clase de servicio para Web Service de Expedientes
@@ -25,6 +26,7 @@ class ExpedientesController
      * Listado de todos los expedientes
      *
      * @return App\Types\Expediente\Response\ExpedienteResponse
+     * @author Isidoro Cornelio
      */
     public function getAllExpedientes()
     {
@@ -47,6 +49,7 @@ class ExpedientesController
      * @param App\Types\Expediente\Request\ExpedienteRequest $request
      *
      * @return App\Types\Expediente\Response\ExpedienteResponse
+     * @author Isidoro Cornelio
      */
     public function getExpedienteById($request)
     {
@@ -66,9 +69,10 @@ class ExpedientesController
     /**
      * Registro de expediente
      *
-     * @param App\Types\Expediente\Request\AltaExpediente $request
+     * @param App\Types\Expediente\Request\AltaExpedienteRequest $request
      *
      * @return App\Types\Expediente\Response\AltaExpedienteResponse
+     * @author Isidoro Cornelio
      */
     public function altaExpediente($request)
     {
@@ -79,6 +83,26 @@ class ExpedientesController
         catch(\Exception $e)
         {
             return new AltaExpedienteResponse(100, $e->getMessage());
+        }
+    }
+
+    /**
+     *
+     * Edición de expediente
+     *
+     * @param App\Types\Expediente\Request\EdicionExpedienteRequest $request
+     *
+     * @return App\Types\Expediente\Response\EdicionExpedienteResponse
+     * @throws SoapFault
+     * @author Isidoro Cornelio
+     */
+    public function edicionExpediente($request)
+    {
+        try{
+            $this->repository->update($request);
+            return new EdicionExpedienteResponse(1, 'Éxito.');
+        }catch(\Exception $e){
+            return new EdicionExpedienteResponse(100, $e->getMessage());
         }
     }
 
