@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Types\Expediente\Custom\Expediente;
 use App\Types\Expediente\Response\ExpedienteResponse;
+use App\Types\Expediente\Custom\AltaExpediente;
+use App\Types\Expediente\Response\AltaExpedienteResponse;
 
 /**
  * Clase de servicio para Web Service de Expedientes
@@ -58,6 +60,25 @@ class ExpedientesController
         catch (\Exception $e)
         {
             return new ExpedienteResponse(100, $e->getMessage());
+        }
+    }
+
+    /**
+     * Registro de expediente
+     *
+     * @param App\Types\Expediente\Request\AltaExpediente $request
+     *
+     * @return App\Types\Expediente\Response\AltaExpedienteResponse
+     */
+    public function altaExpediente($request)
+    {
+        try
+        {
+            return new AltaExpedienteResponse(1, 'Éxito.', $this->repository->store($request));
+        }
+        catch(\Exception $e)
+        {
+            return new AltaExpedienteResponse(100, $e->getMessage());
         }
     }
 
