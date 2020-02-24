@@ -10,4 +10,9 @@ class ExpedienteDocModel extends Model
     protected $primaryKey    = 'id_exp_doc';
     protected $delete_fields = ['id_estatus'];
 
+    /* Relaciones */
+    public function CatDocumento()
+    {
+        return $this->hasOne('App\Models\CatDocumentoModel', 'id_cat_doc', 'id_cat_doc');
+    }
 }
