@@ -8,7 +8,7 @@ use App\Types\Capturista\Response\AltaCapturistaResponse;
 
 /**
  * Clase de servicio para Web Service de Capturistas
- * 
+ *
  * @author Isidoro Cornelio
  */
 class CapturistasController
@@ -28,7 +28,7 @@ class CapturistasController
     public function getAllCapturistas()
     {
         try
-        {        
+        {
             return new CapturistaResponse(1, 'Éxito', $this->repository->getAllCapturistas()
                 ->map(function ($row) {
                     return new Capturista($row);

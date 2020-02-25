@@ -26,9 +26,9 @@ class Capturista
 
     public function __construct($row)
     {
-        $this->id    = $row->id ?? 0;
-        $this->name = $row->name ?? '';
-        $this->email    = $row->email ?? '';
-        $this->perfil =$row->CatPerfil->perfil ?? '';
+        $this->id     = $row->id ?? 0;
+        $this->name   = $row->name ?? '';
+        $this->email  = $row->email ?? '';
+        $this->perfil = $row->CatPerfil->perfil ?? '';
     }
 }

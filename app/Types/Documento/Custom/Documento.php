@@ -29,6 +29,6 @@ class Documento
         $this->id_exp_doc    = $row->id_exp_doc ?? 0;
         $this->id_expediente = $row->id_expediente ?? 0;
         $this->id_cat_doc    = $row->id_cat_doc ?? 0;
-        $this->documento =$row->CatDocumento->documento ?? '';
+        $this->documento     = $row->CatDocumento->documento ?? '';
     }
 }

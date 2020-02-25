@@ -8,7 +8,7 @@ use App\Types\Documento\Response\AltaDocumentoResponse;
 
 /**
  * Clase de servicio para Web Service de Documentos
- * 
+ *
  * @author Isidoro Cornelio
  */
 class DocumentosController
@@ -30,7 +30,7 @@ class DocumentosController
     public function getDocumentosByIdExpediente($request)
     {
         try
-        {        
+        {
             return new DocumentoResponse(1, 'Éxito', $this->repository->getDocumentosByIdExpediente($request)
                 ->map(function ($row) {
                     return new Documento($row);

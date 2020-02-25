@@ -16,7 +16,7 @@ class TipoDocumento
 
     public function __construct($row)
     {
-        $this->id_cat_doc    = $row->id_cat_doc ?? 0;
+        $this->id_cat_doc = $row->id_cat_doc ?? 0;
         $this->documento  = $row->documento ?? '';
     }
 }

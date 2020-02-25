@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Types\Expediente\Custom\Expediente;
 use App\Types\Expediente\Response\ExpedienteResponse;
-use App\Types\Expediente\Custom\AltaExpediente;
 use App\Types\Expediente\Response\AltaExpedienteResponse;
 use App\Types\Expediente\Response\EdicionExpedienteResponse;
 
 /**
  * Clase de servicio para Web Service de Expedientes
- * 
+ *
  * @author Isidoro Cornelio
  */
 class ExpedientesController
@@ -31,7 +30,7 @@ class ExpedientesController
     public function getAllExpedientes()
     {
         try
-        {        
+        {
             return new ExpedienteResponse(1, 'Éxito', $this->repository->getAllExpedientes()
                 ->map(function ($row) {
                     return new Expediente($row);

@@ -8,7 +8,7 @@ class EdicionExpedienteRequest
      * @var integer
      */
     public $id_expediente;
-    
+
     /**
      * @var string
      */

@@ -8,7 +8,7 @@ class DocumentoRepository
 {
     public function getDocumentosByIdExpediente($request)
     {
-        
+
         $q = ExpedienteDocModel::where([
             ['id_expediente', $request->id_expediente],
             ['id_estatus', 1]
@@ -24,7 +24,7 @@ class DocumentoRepository
         public function store($request)
     {
         return \DB::transaction(function () use ($request) {
-       
+
             $q = ExpedienteDocModel::where([
             ['id_expediente', $request->id_expediente],
             ['id_cat_doc', $request->id_cat_doc],
@@ -35,10 +35,10 @@ class DocumentoRepository
             if (count($q)===1)
                 throw new \Exception('Documento duplicado.');
 
-            $record = new ExpedienteDocModel();
+            $record                = new ExpedienteDocModel();
             $record->id_expediente = $request->id_expediente;
-            $record->id_cat_doc = $request->id_cat_doc;
-            $record->id_estatus = 1;
+            $record->id_cat_doc    = $request->id_cat_doc;
+            $record->id_estatus    = 1;
             $record->save();
 
             return ['id_exp_doc' => $record->id_exp_doc];

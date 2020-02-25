@@ -8,7 +8,7 @@ use App\Types\Catalogos\Response\TipoDocumentoResponse;
 
 /**
  * Clase de servicio para Web Service de Cátalogos
- * 
+ *
  * @author Isidoro Cornelio
  */
 class CatalogosController
@@ -28,7 +28,7 @@ class CatalogosController
     public function getAllDocumentos()
     {
         try
-        {        
+        {
             return new TipoDocumentoResponse(1, 'Éxito', $this->repository->getAllDocumentos()
                 ->map(function ($row) {
                     return new TipoDocumento($row);
