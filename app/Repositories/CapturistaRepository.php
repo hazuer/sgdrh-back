@@ -34,4 +34,11 @@ class CapturistaRepository
         });
     }
 
+    public function destroy($request)
+    {
+        return \DB::transaction(function () use ($request) {
+            CapturistaModel::findOrFail($request->id)->delete();
+        });
+    }
+
 }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Types\Capturista\Custom\Capturista;
 use App\Types\Capturista\Response\CapturistaResponse;
-use App\Types\Capturista\Custom\AltaCapturista;
 use App\Types\Capturista\Response\AltaCapturistaResponse;
 
 /**
@@ -58,6 +57,27 @@ class CapturistasController
         catch(\Exception $e)
         {
             return new AltaCapturistaResponse(100, $e->getMessage());
+        }
+    }
+
+    /**
+     * Eliminación lógica de capturista
+     *
+     * @param App\Types\Capturista\Request\BajaCapturistaRequest $request
+     *
+     * @return App\Types\Capturista\Response\CapturistaResponse
+     */
+    public function bajaCapturista($request)
+    {
+        try
+        {
+            $this->repository->destroy($request);
+
+            return new CapturistaResponse(1, 'Éxito.');
+        }
+        catch(\Exception $e)
+        {
+            return new CapturistaResponse(100, $e->getMessage());
         }
     }
 
