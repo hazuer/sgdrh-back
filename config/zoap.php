@@ -52,6 +52,22 @@ return [
             'Cache-Control'     => 'no-cache, no-store'
             ],
             'options'           => []
+        ],
+
+        'Capturistas' => [
+            'name'              => 'Capturistas',
+            'class'             => 'App\Http\Controllers\CapturistasController',
+            'exceptions'        => [
+            'Exception'
+            ],
+            'types'             => [
+            'responseSoap' => 'App\Types\ResponseSOAP'
+            ],
+            'strategy'          => 'ArrayOfTypeComplex',
+            'headers'           => [
+            'Cache-Control'     => 'no-cache, no-store'
+            ],
+            'options'           => []
         ]
     ],
 
