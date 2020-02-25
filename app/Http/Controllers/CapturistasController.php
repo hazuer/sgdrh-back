@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Types\Capturista\Custom\Capturista;
 use App\Types\Capturista\Response\CapturistaResponse;
-
+use App\Types\Capturista\Custom\AltaCapturista;
+use App\Types\Capturista\Response\AltaCapturistaResponse;
 
 /**
  * Clase de servicio para Web Service de Capturistas
@@ -37,6 +38,26 @@ class CapturistasController
         catch (\Exception $e)
         {
             return new CapturistaResponse(100, $e->getMessage());
+        }
+    }
+
+    /**
+     * Registro de capturista
+     *
+     * @param App\Types\Capturista\Request\AltaCapturistaRequest $request
+     *
+     * @return App\Types\Capturista\Response\AltaCapturistaResponse
+     * @author Isidoro Cornelio
+     */
+    public function altaCapturista($request)
+    {
+        try
+        {
+            return new AltaCapturistaResponse(1, 'Éxito.', $this->repository->store($request));
+        }
+        catch(\Exception $e)
+        {
+            return new AltaCapturistaResponse(100, $e->getMessage());
         }
     }
 

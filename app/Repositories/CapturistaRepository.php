@@ -18,4 +18,20 @@ class CapturistaRepository
         return $q;
     }
 
+    public function store($request)
+    {
+        return \DB::transaction(function () use ($request) {
+       
+            $record = new CapturistaModel();
+            $record->name = $request->name;
+            $record->email = $request->email;
+            $record->password = bcrypt($request->password);
+            $record->id_cat_perfil = 2;
+            $record->id_estatus = 1;
+            $record->save();
+
+            return ['id' => $record->id];
+        });
+    }
+
 }
