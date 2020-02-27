@@ -68,6 +68,22 @@ return [
             'Cache-Control' => 'no-cache, no-store'
             ],
             'options'       => []
+        ],
+
+        'User' => [
+            'name'          => 'User',
+            'class'         => 'App\Http\Controllers\UserController',
+            'exceptions'    => [
+            'Exception'
+            ],
+            'types'         => [
+            'responseSoap'  => 'App\Types\ResponseSOAP'
+            ],
+            'strategy'      => 'ArrayOfTypeComplex',
+            'headers'       => [
+            'Cache-Control' => 'no-cache, no-store'
+            ],
+            'options'       => []
         ]
     ],
 

@@ -21,7 +21,7 @@ class DocumentoRepository
         return $q;
     }
 
-        public function store($request)
+    public function store($request)
     {
         return \DB::transaction(function () use ($request) {
 
