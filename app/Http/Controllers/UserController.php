@@ -43,4 +43,24 @@ class UserController
         }
     }
 
+    /**
+     *
+     * Actualizacíon de contraseña
+     *
+     * @param App\Types\User\Request\UpdatePasswordRequest $request
+     *
+     * @return App\Types\User\Response\UserResponse
+     * @throws SoapFault
+     * @author Isidoro Cornelio
+     */
+    public function updatePassword($request)
+    {
+        try{
+            $data =  $this->repository->update($request);
+
+            return new UserResponse($data['code'], $data['message']);
+        }catch(\Exception $e){
+            return new UserResponse(100, $e->getMessage());
+        }
+    }
 }

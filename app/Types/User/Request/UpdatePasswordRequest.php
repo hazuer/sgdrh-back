@@ -7,7 +7,7 @@ class UpdatePasswordRequest
     /**
      * @var string
      */
-    public $name_user;
+    public $id_usuario;
 
     /**
      * @var string
