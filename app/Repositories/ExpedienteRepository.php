@@ -6,7 +6,7 @@ use App\Models\ExpedienteModel;
 
 class ExpedienteRepository
 {
-    public function getAllExpedientes()
+    public function All()
     {
         return ExpedienteModel::all();
     }

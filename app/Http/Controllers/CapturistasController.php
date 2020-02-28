@@ -29,7 +29,7 @@ class CapturistasController
     {
         try
         {
-            return new CapturistaResponse(1, 'Éxito', $this->repository->getAllCapturistas()
+            return new CapturistaResponse(1, 'Éxito', $this->repository->All()
                 ->map(function ($row) {
                     return new Capturista($row);
                 }));

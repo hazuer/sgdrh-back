@@ -29,7 +29,7 @@ class CatalogosController
     {
         try
         {
-            return new TipoDocumentoResponse(1, 'Éxito', $this->repository->getAllDocumentos()
+            return new TipoDocumentoResponse(1, 'Éxito', $this->repository->All()
                 ->map(function ($row) {
                     return new TipoDocumento($row);
                 }));

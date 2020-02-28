@@ -7,7 +7,7 @@ use App\Models\CatDocumentoModel;
 class CatalogosRepository
 {
 
-    public function getAllDocumentos()
+    public function All()
     {
         return CatDocumentoModel::all();
     }

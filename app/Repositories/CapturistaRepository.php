@@ -6,7 +6,7 @@ use App\Models\CapturistaModel;
 
 class CapturistaRepository
 {
-    public function getAllCapturistas()
+    public function All()
     {
 
         $q = CapturistaModel::where([

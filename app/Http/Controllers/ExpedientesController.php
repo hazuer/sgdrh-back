@@ -31,7 +31,7 @@ class ExpedientesController
     {
         try
         {
-            return new ExpedienteResponse(1, 'Éxito', $this->repository->getAllExpedientes()
+            return new ExpedienteResponse(1, 'Éxito', $this->repository->All()
                 ->map(function ($row) {
                     return new Expediente($row);
                 }));

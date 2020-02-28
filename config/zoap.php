@@ -84,6 +84,22 @@ return [
             'Cache-Control' => 'no-cache, no-store'
             ],
             'options'       => []
+        ],
+
+        'Inventario' => [
+            'name'          => 'Inventario',
+            'class'         => 'App\Http\Controllers\InventarioController',
+            'exceptions'    => [
+            'Exception'
+            ],
+            'types'         => [
+            'responseSoap'  => 'App\Types\ResponseSOAP'
+            ],
+            'strategy'      => 'ArrayOfTypeComplex',
+            'headers'       => [
+            'Cache-Control' => 'no-cache, no-store'
+            ],
+            'options'       => []
         ]
     ],
 

@@ -11,8 +11,14 @@ class ExpedienteDocModel extends Model
     protected $delete_fields = ['id_estatus'];
 
     /* Relaciones */
+    
     public function CatDocumento()
     {
         return $this->hasOne('App\Models\CatDocumentoModel', 'id_cat_doc', 'id_cat_doc');
+    }
+
+    public function Expediente()
+    {
+        return $this->hasOne('App\Models\ExpedienteModel', 'id_expediente', 'id_expediente');
     }
 }
