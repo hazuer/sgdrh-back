@@ -21,17 +21,28 @@ class CapturistaRepository
     public function store($request)
     {
         return \DB::transaction(function () use ($request) {
+            
+            $q = CapturistaModel::where([
+            ['email', $request->email],
+            ['id_estatus', 1]
+            ]);
 
-            $record                = new CapturistaModel();
-            $record->name          = $request->name;
-            $record->email         = $request->email;
-            $record->password      = bcrypt($request->password);
-            $record->id_cat_perfil = 2;
-            $record->id_estatus    = 1;
-            $record->save();
+            $valid = $q->first();
+        
+            //Usuario ya existe
+            if (count($valid)===1)
+                return ["code" => 2, "message"=> "El usuario ya existe."];
 
-            return ['id' => $record->id];
-        });
+                $record                = new CapturistaModel();
+                $record->name          = $request->name;
+                $record->email         = $request->email;
+                $record->password      = bcrypt($request->password);
+                $record->id_cat_perfil = 2;
+                $record->id_estatus    = 1;
+                $record->save();
+
+                return ["code" => 1, "message"=> "Éxito."];
+            });
     }
 
     public function destroy($request)

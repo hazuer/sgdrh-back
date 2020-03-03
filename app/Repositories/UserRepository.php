@@ -29,6 +29,16 @@ class UserRepository
     public function update($request)
     {
         return \DB::transaction(function () use ($request) {
+
+            $q = CapturistaModel::where([
+            ['id', $request->id_usuario],
+            ['id_estatus', 1]
+            ]);
+
+            $valid = $q->first();
+            //Usuario NO existe
+            if (count($valid)===0)
+                return ["code" => 4, "message"=> "El usuario no existe."];
             $record = CapturistaModel::findOrFail($request->id_usuario);
 
             //Las contraseñas no coinciden

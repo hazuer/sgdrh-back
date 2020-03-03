@@ -52,7 +52,9 @@ class CapturistasController
     {
         try
         {
-            return new AltaCapturistaResponse(1, 'Éxito.', $this->repository->store($request));
+            $data =  $this->repository->store($request);
+
+            return new AltaCapturistaResponse($data['code'], $data['message']);
         }
         catch(\Exception $e)
         {
