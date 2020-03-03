@@ -17,17 +17,8 @@ class Inventario
     /**
      * @var string
      */
-    public $ap_paterno;
+    public $nombre_empleado;
 
-    /**
-     * @var string
-     */
-    public $ap_materno;
-
-    /**
-     * @var string
-     */
-    public $nombres;
     /**
      * @var integer
      */
@@ -35,11 +26,9 @@ class Inventario
 
     public function __construct($row)
     {
-        $this->id_expediente    = $row->Expediente->id_expediente ?? 0;
-        $this->numero_empleado    = $row->Expediente->numero_empleado ?? '';
-        $this->ap_paterno  = $row->Expediente->ap_paterno ?? '';
-        $this->ap_materno  = $row->Expediente->ap_materno ?? '';   
-        $this->nombres  = $row->Expediente->nombres ?? '';
+        $this->id_expediente    = $row->id_expediente ?? 0;
+        $this->numero_empleado    = $row->numero_empleado ?? '';
+        $this->nombre_empleado  = $row->nombre_empleado ?? '';
         $this->id_cat_doc          = $row->id_cat_doc ?? 0;
         
    }
