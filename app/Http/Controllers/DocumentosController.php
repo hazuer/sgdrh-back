@@ -54,7 +54,8 @@ class DocumentosController
     {
         try
         {
-            return new AltaDocumentoResponse(1, 'Éxito.', $this->repository->store($request));
+            $data =  $this->repository->store($request);
+            return new AltaDocumentoResponse($data['code'], $data['message']);
         }
         catch(\Exception $e)
         {

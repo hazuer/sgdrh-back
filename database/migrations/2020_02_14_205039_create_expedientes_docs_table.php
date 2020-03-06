@@ -17,6 +17,7 @@ class CreateExpedientesDocsTable extends Migration
             $table->bigIncrements('id_exp_doc');
             $table->integer('id_expediente');
             $table->integer('id_cat_doc');
+            $table->string('name_file');
             $table->integer('id_estatus');
             $table->timestamps();
         });
