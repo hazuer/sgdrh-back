@@ -26,10 +26,10 @@ class DocumentoRepository
     {
         return \DB::transaction(function () use ($request) {
 
-            $id_expediente = $request->id_expediente;
-            $id_cat_doc = $request->id_cat_doc;
-            $file_name = str_replace(" ","_",$request->file_name);
-            $file_name = str_replace("-","",$file_name);
+            $id_expediente  = $request->id_expediente;
+            $id_cat_doc     = $request->id_cat_doc;
+            $file_name      = str_replace(" ","_",$request->file_name);
+            $file_name      = str_replace("-","",$file_name);
             $file_mime_type = $request->file_mime_type;
 
             // Tamaño del archivo, Max 5000000 bytes ==5MB
@@ -37,7 +37,7 @@ class DocumentoRepository
                 return ["code" => 2, "message"=> "El documento no se puede adjuntar debido a que supera los 5 MB permitidos."];
 
             //Extensión del archivo
-            if($request->id_cat_doc!=1) 
+            if($request->id_cat_doc!=1)
             {
                 if($file_mime_type!="application/pdf"){
                     return ["code" => 3, "message"=> "El documento no se puede adjuntar debido a que no cumple con el formato permitido: PDF."];
@@ -70,17 +70,17 @@ class DocumentoRepository
             $record->id_expediente = $id_expediente;
             $record->id_cat_doc    = $id_cat_doc;
             $record->id_estatus    = 1;
-            $record->name_file    = "";
+            $record->name_file     = "";
             $record->save();
             $id_exp_doc = $record->id_exp_doc;
-            
-            // Documentos
-            $path_folder="expediente_".$id_expediente;
-            $archivo=$id_exp_doc."_".$id_expediente."_".$id_cat_doc."_".$file_name;
-            $archivo_binario   = base64_decode($request->file_binary_b64);
 
-            $upDoc = ExpedienteDocModel::find($id_exp_doc);
-            $upDoc->name_file    = $archivo;
+            // Documentos
+            $path_folder     = "expediente_".$id_expediente;
+            $archivo         = $id_exp_doc."_".$id_expediente."_".$id_cat_doc."_".$file_name;
+            $archivo_binario = base64_decode($request->file_binary_b64);
+
+            $upDoc            = ExpedienteDocModel::find($id_exp_doc);
+            $upDoc->name_file = $archivo;
             $upDoc->save();
 
             Storage::disk('public_uploads')->put("/".$path_folder."/".$archivo, $archivo_binario);
@@ -96,7 +96,7 @@ class DocumentoRepository
             $record = ExpedienteDocModel::findOrFail($request->id_exp_doc);
 
             $path_folder = "expediente_".$record->id_expediente;
-            $archivo = $record->name_file;        
+            $archivo = $record->name_file;
 
             Storage::disk('public_uploads')->delete("/".$path_folder."/".$archivo);
 

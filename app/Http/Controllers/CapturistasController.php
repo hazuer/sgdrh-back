@@ -83,4 +83,25 @@ class CapturistasController
         }
     }
 
+    /**
+     * Reseteo de contraseña de capturista
+     *
+     * @param App\Types\Capturista\Request\UpdateCapturistaRequest $request
+     *
+     * @return App\Types\Capturista\Response\CapturistaResponse
+     */
+    public function updateCapturista($request)
+    {
+        try
+        {
+            $this->repository->update($request);
+
+            return new CapturistaResponse(1, 'Éxito.');
+        }
+        catch(\Exception $e)
+        {
+            return new CapturistaResponse(100, $e->getMessage());
+        }
+    }
+
 }

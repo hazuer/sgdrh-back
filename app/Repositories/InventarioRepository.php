@@ -14,8 +14,10 @@ class InventarioRepository
             ,\DB::raw("concat(expedientes.ap_paterno, ' ', expedientes.ap_materno, ' ', expedientes.nombres) AS nombre_empleado")
             ,"ed.id_cat_doc")
             ->from("expedientes")
+            ->where('expedientes.id_estatus', 1)
+            ->orderBy('expedientes.id_expediente', 'asc')
             ->leftJoin("expedientes_docs as ed", "ed.id_expediente", "=", "expedientes.id_expediente")
             ->get();
     }
-   
+
 }

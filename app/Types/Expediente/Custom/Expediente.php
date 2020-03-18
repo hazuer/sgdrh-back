@@ -59,6 +59,11 @@ class Expediente
      */
     public $puesto;
 
+    /**
+     * @var integer
+     */
+    public $id_estatus;
+
     public function __construct($row)
     {
         $this->id_expediente    = $row->id_expediente ?? 0;
@@ -72,5 +77,6 @@ class Expediente
         $this->curp             = $row->curp ?? '';
         $this->rfc              = $row->rfc ?? '';
         $this->puesto           = $row->puesto ?? '';
+        $this->id_estatus       = $row->id_estatus ?? 0;
     }
 }

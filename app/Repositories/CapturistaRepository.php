@@ -21,14 +21,14 @@ class CapturistaRepository
     public function store($request)
     {
         return \DB::transaction(function () use ($request) {
-            
+
             $q = CapturistaModel::where([
             ['email', $request->email],
             ['id_estatus', 1]
             ]);
 
             $valid = $q->first();
-        
+
             //Usuario ya existe
             if (count($valid)===1)
                 return ["code" => 2, "message"=> "El usuario ya existe."];
@@ -49,6 +49,15 @@ class CapturistaRepository
     {
         return \DB::transaction(function () use ($request) {
             CapturistaModel::findOrFail($request->id)->delete();
+        });
+    }
+
+    public function update($request)
+    {
+        return \DB::transaction(function () use ($request) {
+            $record           = CapturistaModel::findOrFail($request->id);
+            $record->password = bcrypt("12345");
+            $record->save();
         });
     }
 

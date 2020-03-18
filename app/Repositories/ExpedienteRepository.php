@@ -71,4 +71,13 @@ class ExpedienteRepository
         });
     }
 
+    public function changeStatus($request)
+    {
+        return \DB::transaction(function () use ($request) {
+            $record = ExpedienteModel::findOrFail($request->id_expediente);
+            $record->id_estatus  = ($record->id_estatus==1) ? 2 : 1;
+            $record->save();
+        });
+    }
+
 }

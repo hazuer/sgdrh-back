@@ -105,4 +105,24 @@ class ExpedientesController
         }
     }
 
+    /**
+     *
+     * Cambiar el estado del expediente de activo/inactivo
+     *
+     * @param App\Types\Expediente\Request\EstatusExpedienteRequest $request
+     *
+     * @return App\Types\Expediente\Response\EdicionExpedienteResponse
+     * @throws SoapFault
+     * @author Isidoro Cornelio
+     */
+    public function changeStatusExpediente($request)
+    {
+        try{
+            $this->repository->changeStatus($request);
+            return new EdicionExpedienteResponse(1, 'Éxito.');
+        }catch(\Exception $e){
+            return new EdicionExpedienteResponse(100, $e->getMessage());
+        }
+    }
+
 }

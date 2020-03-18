@@ -38,5 +38,5 @@ class InventarioController
             return new InventarioResponse(100, $e->getMessage());
         }
     }
-    
+
 }
